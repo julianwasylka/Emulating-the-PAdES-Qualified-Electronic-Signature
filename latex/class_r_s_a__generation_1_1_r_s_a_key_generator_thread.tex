@@ -1,0 +1,107 @@
+\doxysection{RSA\+\_\+generation.\+RSAKey\+Generator\+Thread Class Reference}
+\hypertarget{class_r_s_a__generation_1_1_r_s_a_key_generator_thread}{}\label{class_r_s_a__generation_1_1_r_s_a_key_generator_thread}\index{RSA\_generation.RSAKeyGeneratorThread@{RSA\_generation.RSAKeyGeneratorThread}}
+Inheritance diagram for RSA\+\_\+generation.\+RSAKey\+Generator\+Thread\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_r_s_a__generation_1_1_r_s_a_key_generator_thread}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_r_s_a__generation_1_1_r_s_a_key_generator_thread_a4b785372d0289773173ab8ab9e84d3e8}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, pin, output\+\_\+dir)
+\item 
+\mbox{\hyperlink{class_r_s_a__generation_1_1_r_s_a_key_generator_thread_a10501a8c3133649fd434a008d36aae02}{run}} (self)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_r_s_a__generation_1_1_r_s_a_key_generator_thread_af7e6a83595288931c8644cb06daf069a}\label{class_r_s_a__generation_1_1_r_s_a_key_generator_thread_af7e6a83595288931c8644cb06daf069a} 
+{\bfseries pin} = pin.\+encode()
+\item 
+\Hypertarget{class_r_s_a__generation_1_1_r_s_a_key_generator_thread_af31c365ab35ecfe057ddebab9277f341}\label{class_r_s_a__generation_1_1_r_s_a_key_generator_thread_af31c365ab35ecfe057ddebab9277f341} 
+{\bfseries output\+\_\+dir} = output\+\_\+dir
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_r_s_a__generation_1_1_r_s_a_key_generator_thread_ac30c6ddeacd80159ff421be14b931d8c}\label{class_r_s_a__generation_1_1_r_s_a_key_generator_thread_ac30c6ddeacd80159ff421be14b931d8c} 
+{\bfseries progress\+\_\+updated} = pyqt\+Signal(int)
+\item 
+\Hypertarget{class_r_s_a__generation_1_1_r_s_a_key_generator_thread_a74b1e4e4aa8424231ba668b1afd41b44}\label{class_r_s_a__generation_1_1_r_s_a_key_generator_thread_a74b1e4e4aa8424231ba668b1afd41b44} 
+{\bfseries key\+\_\+generated} = pyqt\+Signal(bytes, bytes, str)
+\item 
+\Hypertarget{class_r_s_a__generation_1_1_r_s_a_key_generator_thread_a65974af19d9fe5d1381ff6efc26f5783}\label{class_r_s_a__generation_1_1_r_s_a_key_generator_thread_a65974af19d9fe5d1381ff6efc26f5783} 
+{\bfseries error\+\_\+occurred} = pyqt\+Signal(str)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}@brief Background thread for RSA key generation
+@details Handles RSA-4096 key generation, AES-256 encryption, and file operations
+         in a separate thread to prevent GUI freezing during computation.
+
+@author PAdES Electronic Signature Project
+@version 1.0
+@date 2025
+
+This class implements secure key generation in a background thread with the following features:
+- RSA-4096 key generation using cryptographically secure random numbers
+- AES-256-EAX encryption for private key protection
+- SHA-256 hash function for PIN-based key derivation
+- Progress tracking and error handling
+- File I/O operations for secure key storage
+
+@par Signals:
+- progress_updated(int): Emits progress percentage (0-100)
+- key_generated(bytes, bytes, str): Emits encrypted private key, public key, and status message
+- error_occurred(str): Emits error message if generation fails
+\end{DoxyVerb}
+ 
+
+\label{doc-constructors}
+\Hypertarget{class_r_s_a__generation_1_1_r_s_a_key_generator_thread_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_r_s_a__generation_1_1_r_s_a_key_generator_thread_a4b785372d0289773173ab8ab9e84d3e8}\index{RSA\_generation.RSAKeyGeneratorThread@{RSA\_generation.RSAKeyGeneratorThread}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!RSA\_generation.RSAKeyGeneratorThread@{RSA\_generation.RSAKeyGeneratorThread}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily \label{class_r_s_a__generation_1_1_r_s_a_key_generator_thread_a4b785372d0289773173ab8ab9e84d3e8} 
+RSA\+\_\+generation.\+RSAKey\+Generator\+Thread.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{pin}{, }\item[{}]{output\+\_\+dir}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}@brief Initialize key generation thread
+@param pin User-provided PIN for key derivation (string)
+@param output_dir Directory to save generated keys (string)
+
+The PIN is immediately encoded to bytes and stored securely.
+The output directory is validated during the run() method.
+\end{DoxyVerb}
+ 
+
+\label{doc-func-members}
+\Hypertarget{class_r_s_a__generation_1_1_r_s_a_key_generator_thread_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_r_s_a__generation_1_1_r_s_a_key_generator_thread_a10501a8c3133649fd434a008d36aae02}\index{RSA\_generation.RSAKeyGeneratorThread@{RSA\_generation.RSAKeyGeneratorThread}!run@{run}}
+\index{run@{run}!RSA\_generation.RSAKeyGeneratorThread@{RSA\_generation.RSAKeyGeneratorThread}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily \label{class_r_s_a__generation_1_1_r_s_a_key_generator_thread_a10501a8c3133649fd434a008d36aae02} 
+RSA\+\_\+generation.\+RSAKey\+Generator\+Thread.\+run (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}@brief Main key generation process
+@details Generates RSA-4096 keys, encrypts private key with AES-256-EAX,
+         and saves both keys to specified directory.
+
+The process follows these steps:
+1. Derive AES key from PIN using SHA-256
+2. Generate RSA-4096 key pair
+3. Export keys in PEM format
+4. Encrypt private key with AES-256-EAX
+5. Save encrypted private key and public key to files
+
+@note All cryptographic operations use secure random number generation
+@note Private key is never stored in plaintext
+\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+RSA\+\_\+generation.\+py\end{DoxyCompactItemize}

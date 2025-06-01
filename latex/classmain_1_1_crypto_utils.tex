@@ -1,0 +1,60 @@
+\doxysection{main.\+Crypto\+Utils Class Reference}
+\hypertarget{classmain_1_1_crypto_utils}{}\label{classmain_1_1_crypto_utils}\index{main.CryptoUtils@{main.CryptoUtils}}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmain_1_1_crypto_utils_aa300de46b3d0cde092176c6abff95ee1}{load\+\_\+private\+\_\+key\+\_\+from\+\_\+pendrive}} (pendrive\+\_\+path, pin)
+\item 
+\mbox{\hyperlink{classmain_1_1_crypto_utils_a4f7d62fcce4731abe109c4aa69fefca3}{load\+\_\+public\+\_\+key}} (key\+\_\+path)
+\item 
+\mbox{\hyperlink{classmain_1_1_crypto_utils_ad94bd63e48a4242fda9fd3d5f6c6e57a}{calculate\+\_\+pdf\+\_\+hash}} (pdf\+\_\+path)
+\item 
+\mbox{\hyperlink{classmain_1_1_crypto_utils_a274c15a933fbc7f545a2bf819759ef1e}{sign\+\_\+hash}} (hash\+\_\+digest, private\+\_\+key)
+\item 
+\mbox{\hyperlink{classmain_1_1_crypto_utils_a70ca9dc846b2d92a2078967cb0e75f55}{verify\+\_\+signature}} (hash\+\_\+digest, signature, public\+\_\+key)
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{classmain_1_1_crypto_utils_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmain_1_1_crypto_utils_ad94bd63e48a4242fda9fd3d5f6c6e57a}\index{main.CryptoUtils@{main.CryptoUtils}!calculate\_pdf\_hash@{calculate\_pdf\_hash}}
+\index{calculate\_pdf\_hash@{calculate\_pdf\_hash}!main.CryptoUtils@{main.CryptoUtils}}
+\doxysubsubsection{\texorpdfstring{calculate\_pdf\_hash()}{calculate\_pdf\_hash()}}
+{\footnotesize\ttfamily \label{classmain_1_1_crypto_utils_ad94bd63e48a4242fda9fd3d5f6c6e57a} 
+main.\+Crypto\+Utils.\+calculate\+\_\+pdf\+\_\+hash (\begin{DoxyParamCaption}\item[{}]{pdf\+\_\+path}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\begin{DoxyVerb}Calculate SHA-256 hash of PDF content\end{DoxyVerb}
+ \Hypertarget{classmain_1_1_crypto_utils_aa300de46b3d0cde092176c6abff95ee1}\index{main.CryptoUtils@{main.CryptoUtils}!load\_private\_key\_from\_pendrive@{load\_private\_key\_from\_pendrive}}
+\index{load\_private\_key\_from\_pendrive@{load\_private\_key\_from\_pendrive}!main.CryptoUtils@{main.CryptoUtils}}
+\doxysubsubsection{\texorpdfstring{load\_private\_key\_from\_pendrive()}{load\_private\_key\_from\_pendrive()}}
+{\footnotesize\ttfamily \label{classmain_1_1_crypto_utils_aa300de46b3d0cde092176c6abff95ee1} 
+main.\+Crypto\+Utils.\+load\+\_\+private\+\_\+key\+\_\+from\+\_\+pendrive (\begin{DoxyParamCaption}\item[{}]{pendrive\+\_\+path}{, }\item[{}]{pin}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\begin{DoxyVerb}Load and decrypt private key from pendrive\end{DoxyVerb}
+ \Hypertarget{classmain_1_1_crypto_utils_a4f7d62fcce4731abe109c4aa69fefca3}\index{main.CryptoUtils@{main.CryptoUtils}!load\_public\_key@{load\_public\_key}}
+\index{load\_public\_key@{load\_public\_key}!main.CryptoUtils@{main.CryptoUtils}}
+\doxysubsubsection{\texorpdfstring{load\_public\_key()}{load\_public\_key()}}
+{\footnotesize\ttfamily \label{classmain_1_1_crypto_utils_a4f7d62fcce4731abe109c4aa69fefca3} 
+main.\+Crypto\+Utils.\+load\+\_\+public\+\_\+key (\begin{DoxyParamCaption}\item[{}]{key\+\_\+path}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\begin{DoxyVerb}Load public key from file\end{DoxyVerb}
+ \Hypertarget{classmain_1_1_crypto_utils_a274c15a933fbc7f545a2bf819759ef1e}\index{main.CryptoUtils@{main.CryptoUtils}!sign\_hash@{sign\_hash}}
+\index{sign\_hash@{sign\_hash}!main.CryptoUtils@{main.CryptoUtils}}
+\doxysubsubsection{\texorpdfstring{sign\_hash()}{sign\_hash()}}
+{\footnotesize\ttfamily \label{classmain_1_1_crypto_utils_a274c15a933fbc7f545a2bf819759ef1e} 
+main.\+Crypto\+Utils.\+sign\+\_\+hash (\begin{DoxyParamCaption}\item[{}]{hash\+\_\+digest}{, }\item[{}]{private\+\_\+key}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\begin{DoxyVerb}Sign hash with private key\end{DoxyVerb}
+ \Hypertarget{classmain_1_1_crypto_utils_a70ca9dc846b2d92a2078967cb0e75f55}\index{main.CryptoUtils@{main.CryptoUtils}!verify\_signature@{verify\_signature}}
+\index{verify\_signature@{verify\_signature}!main.CryptoUtils@{main.CryptoUtils}}
+\doxysubsubsection{\texorpdfstring{verify\_signature()}{verify\_signature()}}
+{\footnotesize\ttfamily \label{classmain_1_1_crypto_utils_a70ca9dc846b2d92a2078967cb0e75f55} 
+main.\+Crypto\+Utils.\+verify\+\_\+signature (\begin{DoxyParamCaption}\item[{}]{hash\+\_\+digest}{, }\item[{}]{signature}{, }\item[{}]{public\+\_\+key}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\begin{DoxyVerb}Verify signature with public key\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+main.\+py\end{DoxyCompactItemize}
