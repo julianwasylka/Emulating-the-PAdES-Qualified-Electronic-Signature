@@ -1,0 +1,84 @@
+\doxysection{RSA\+\_\+generation Namespace Reference}
+\hypertarget{namespace_r_s_a__generation}{}\label{namespace_r_s_a__generation}\index{RSA\_generation@{RSA\_generation}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i}{RSAKey\+Generator\+GUI}}
+\item 
+class \mbox{\hyperlink{class_r_s_a__generation_1_1_r_s_a_key_generator_thread}{RSAKey\+Generator\+Thread}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespace_r_s_a__generation_af0e63616517912e0bcb2cab24ca442d6}{create\+\_\+rsa\+\_\+keys}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{namespace_r_s_a__generation_ab48c698bf67c38b4267f84d8d55c16db}\label{namespace_r_s_a__generation_ab48c698bf67c38b4267f84d8d55c16db} 
+int {\bfseries KEY\+\_\+\+SIZE} = 4096
+\item 
+\Hypertarget{namespace_r_s_a__generation_af348a8579ff5c50dcfab40777d2b49f5}\label{namespace_r_s_a__generation_af348a8579ff5c50dcfab40777d2b49f5} 
+{\bfseries CIPHER\+\_\+\+MODE} = AES.\+MODE\+\_\+\+EAX
+\item 
+\Hypertarget{namespace_r_s_a__generation_a468f50913c586b040139376ae4aaccd1}\label{namespace_r_s_a__generation_a468f50913c586b040139376ae4aaccd1} 
+{\bfseries app} = QApplication(sys.\+argv)
+\item 
+\Hypertarget{namespace_r_s_a__generation_a8291feb4e7955164e72b1172067cdf69}\label{namespace_r_s_a__generation_a8291feb4e7955164e72b1172067cdf69} 
+{\bfseries window} = \mbox{\hyperlink{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i}{RSAKey\+Generator\+GUI}}()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}@file RSA_generation.py
+@brief RSA-4096 Key Generator with AES-256 Encryption
+@details This application provides a secure GUI interface for generating RSA-4096 key pairs
+         with AES-256-EAX encryption for private key protection. Supports pendrive detection
+         and PIN-based key derivation following cryptographic best practices.
+@author PAdES Electronic Signature Project
+@date 2025
+@version 1.0
+
+@section FEATURES Features
+- RSA-4096 key generation with cryptographically secure random number generator
+- AES-256-EAX encryption for private key protection
+- PIN-based key derivation using SHA-256
+- Pendrive detection for secure key storage
+- Progress tracking and error handling
+- Modern PyQt5 GUI interface
+
+@section SECURITY Security Implementation
+- RSA-4096: Maximum security key size meeting industry standards
+- SHA-256: Secure hash algorithm for PIN-to-key derivation
+- AES-256-EAX: Authenticated encryption for private key protection
+- Secure Random Generation: Crypto.Random for cryptographically secure keys
+
+@section USAGE Usage
+Run with GUI: python RSA_generation.py
+Run with CLI: python RSA_generation.py --cli
+\end{DoxyVerb}
+ 
+
+\label{doc-func-members}
+\Hypertarget{namespace_r_s_a__generation_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespace_r_s_a__generation_af0e63616517912e0bcb2cab24ca442d6}\index{RSA\_generation@{RSA\_generation}!create\_rsa\_keys@{create\_rsa\_keys}}
+\index{create\_rsa\_keys@{create\_rsa\_keys}!RSA\_generation@{RSA\_generation}}
+\doxysubsubsection{\texorpdfstring{create\_rsa\_keys()}{create\_rsa\_keys()}}
+{\footnotesize\ttfamily \label{namespace_r_s_a__generation_af0e63616517912e0bcb2cab24ca442d6} 
+RSA\+\_\+generation.\+create\+\_\+rsa\+\_\+keys (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}@brief Legacy command-line interface for key generation
+@details Provides command-line interface for key generation when GUI is not desired.
+         Uses the same cryptographic operations as the GUI version.
+
+@deprecated This function is maintained for backward compatibility.
+            Use the GUI version for better user experience.
+
+The CLI process:
+1. Prompt user for PIN
+2. Generate RSA-4096 key pair
+3. Encrypt private key with AES-256-EAX
+4. Save keys to default 'keys/' directory
+\end{DoxyVerb}
+ 

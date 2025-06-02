@@ -1,0 +1,231 @@
+\doxysection{RSA\+\_\+generation.\+RSAKey\+Generator\+GUI Class Reference}
+\hypertarget{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i}{}\label{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i}\index{RSA\_generation.RSAKeyGeneratorGUI@{RSA\_generation.RSAKeyGeneratorGUI}}
+Inheritance diagram for RSA\+\_\+generation.\+RSAKey\+Generator\+GUI\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_a63bb8f0228110c730c0439835788ce18}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
+\item 
+\mbox{\hyperlink{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_ab2c61569aa9ec7620fd6fa6ed62b3fb3}{init\+UI}} (self)
+\item 
+\mbox{\hyperlink{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_a9a8477e8f3454225f556e3e0df873eb5}{browse\+\_\+output\+\_\+dir}} (self)
+\item 
+\mbox{\hyperlink{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_aaf251c818b3a02ec481603972fac1c4b}{detect\+\_\+pendrives}} (self)
+\item 
+\mbox{\hyperlink{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_adcf42205ec7e0e5e989fd3bc236c9bc9}{generate\+\_\+keys}} (self)
+\item 
+\mbox{\hyperlink{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_a1d56290798ee865a0331d088b53bc2bb}{update\+\_\+progress}} (self, value)
+\item 
+\mbox{\hyperlink{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_a94ea6162cda75957d6bef20048cdc964}{on\+\_\+keys\+\_\+generated}} (self, encrypted\+\_\+private\+\_\+key, public\+\_\+key, message)
+\item 
+\mbox{\hyperlink{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_ace0aff8b9aed3d3cd6a8603cc4b360ab}{on\+\_\+error}} (self, error\+\_\+message)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_a7a08c372ba71ad8e03c3117ef2697931}\label{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_a7a08c372ba71ad8e03c3117ef2697931} 
+{\bfseries pin\+\_\+input} = QLine\+Edit()
+\item 
+\Hypertarget{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_afce0f27307c6daaa45bcd641635f8b62}\label{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_afce0f27307c6daaa45bcd641635f8b62} 
+{\bfseries pin\+\_\+confirm\+\_\+input} = QLine\+Edit()
+\item 
+\Hypertarget{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_ac0452b65d24ee57b13d0f51b682dcef6}\label{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_ac0452b65d24ee57b13d0f51b682dcef6} 
+{\bfseries output\+\_\+path} = QLabel("{}keys/"{})
+\item 
+\Hypertarget{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_af07545c9b0459ff1e84def612cff7271}\label{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_af07545c9b0459ff1e84def612cff7271} 
+{\bfseries browse\+\_\+button} = QPush\+Button("{}Browse..."{})
+\item 
+\Hypertarget{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_ad095140197e5ff5636f0b0898ef03784}\label{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_ad095140197e5ff5636f0b0898ef03784} 
+{\bfseries browse\+\_\+output\+\_\+dir}
+\item 
+\Hypertarget{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_ad80e8f7377a0de66f70967d022e5e710}\label{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_ad80e8f7377a0de66f70967d022e5e710} 
+{\bfseries detect\+\_\+button} = QPush\+Button("{}Detect Available Pendrives"{})
+\item 
+\Hypertarget{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_a4564a86e89c683b9536f37f06411e0bb}\label{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_a4564a86e89c683b9536f37f06411e0bb} 
+{\bfseries detect\+\_\+pendrives}
+\item 
+\Hypertarget{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_a6ceef0e15873624491ff50393625fda9}\label{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_a6ceef0e15873624491ff50393625fda9} 
+{\bfseries pendrive\+\_\+info} = QText\+Edit()
+\item 
+\Hypertarget{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_ad9e43dfc259925cc9426771a8e4ad70c}\label{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_ad9e43dfc259925cc9426771a8e4ad70c} 
+{\bfseries progress\+\_\+bar} = QProgress\+Bar()
+\item 
+\Hypertarget{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_ab878e70efe844ddaff173c154e850c27}\label{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_ab878e70efe844ddaff173c154e850c27} 
+{\bfseries generate\+\_\+button} = QPush\+Button("{}Generate RSA Key Pair"{})
+\item 
+\Hypertarget{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_a1f94b0a61aad4dba4ee231f71e4cfacd}\label{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_a1f94b0a61aad4dba4ee231f71e4cfacd} 
+{\bfseries generate\+\_\+keys}
+\item 
+\Hypertarget{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_a36483b4ca261fa45f9de0e5ffe8ad870}\label{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_a36483b4ca261fa45f9de0e5ffe8ad870} 
+{\bfseries status\+\_\+label} = QLabel("{}"{})
+\item 
+\Hypertarget{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_a36a96b8971b59fa5dbaf48aec1448754}\label{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_a36a96b8971b59fa5dbaf48aec1448754} 
+{\bfseries key\+\_\+thread} = \mbox{\hyperlink{class_r_s_a__generation_1_1_r_s_a_key_generator_thread}{RSAKey\+Generator\+Thread}}(pin, output\+\_\+dir)
+\item 
+\Hypertarget{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_ac0e74fcaf6a293876dd454825f916453}\label{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_ac0e74fcaf6a293876dd454825f916453} 
+{\bfseries update\+\_\+progress}
+\item 
+\Hypertarget{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_a41db0bb48ec1fc0f6c8852840dcfc88c}\label{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_a41db0bb48ec1fc0f6c8852840dcfc88c} 
+{\bfseries on\+\_\+keys\+\_\+generated}
+\item 
+\Hypertarget{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_a369c59bb2d0c5e308e43dcffcd5e71b3}\label{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_a369c59bb2d0c5e308e43dcffcd5e71b3} 
+{\bfseries on\+\_\+error}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}@brief Main GUI window for RSA key generation
+@details Provides a user-friendly interface for generating RSA-4096 key pairs with
+         AES-256-EAX encryption. Features include PIN validation, pendrive detection,
+         progress tracking, and comprehensive error handling.
+
+@author PAdES Electronic Signature Project
+@version 1.0
+@date 2025
+
+The GUI provides the following features:
+- Secure PIN input with confirmation
+- Output directory selection with browse functionality
+- Automatic pendrive detection for secure key storage
+- Real-time progress tracking during key generation
+- Input validation and comprehensive error handling
+- Modern styling with color-coded status indicators
+
+@par Key Components:
+- PIN input fields with password masking
+- Output directory selection with validation
+- Pendrive detection and listing
+- Progress bar with percentage tracking
+- Status label with success/error indicators
+\end{DoxyVerb}
+ 
+
+\label{doc-constructors}
+\Hypertarget{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_a63bb8f0228110c730c0439835788ce18}\index{RSA\_generation.RSAKeyGeneratorGUI@{RSA\_generation.RSAKeyGeneratorGUI}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!RSA\_generation.RSAKeyGeneratorGUI@{RSA\_generation.RSAKeyGeneratorGUI}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily \label{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_a63bb8f0228110c730c0439835788ce18} 
+RSA\+\_\+generation.\+RSAKey\+Generator\+GUI.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}@brief Initialize the RSA Key Generator GUI
+@details Sets up the main window and initializes the user interface components
+
+Creates the main window with proper title, geometry, and calls initUI()
+to set up all interface components.
+\end{DoxyVerb}
+ 
+
+\label{doc-func-members}
+\Hypertarget{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_a9a8477e8f3454225f556e3e0df873eb5}\index{RSA\_generation.RSAKeyGeneratorGUI@{RSA\_generation.RSAKeyGeneratorGUI}!browse\_output\_dir@{browse\_output\_dir}}
+\index{browse\_output\_dir@{browse\_output\_dir}!RSA\_generation.RSAKeyGeneratorGUI@{RSA\_generation.RSAKeyGeneratorGUI}}
+\doxysubsubsection{\texorpdfstring{browse\_output\_dir()}{browse\_output\_dir()}}
+{\footnotesize\ttfamily \label{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_a9a8477e8f3454225f556e3e0df873eb5} 
+RSA\+\_\+generation.\+RSAKey\+Generator\+GUI.\+browse\+\_\+output\+\_\+dir (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}@brief Open a dialog to select the output directory
+@details Uses QFileDialog to allow user selection of output directory.
+         Updates the output_path label with the selected directory.
+
+If user cancels the dialog, no changes are made to the current path.
+\end{DoxyVerb}
+ \Hypertarget{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_aaf251c818b3a02ec481603972fac1c4b}\index{RSA\_generation.RSAKeyGeneratorGUI@{RSA\_generation.RSAKeyGeneratorGUI}!detect\_pendrives@{detect\_pendrives}}
+\index{detect\_pendrives@{detect\_pendrives}!RSA\_generation.RSAKeyGeneratorGUI@{RSA\_generation.RSAKeyGeneratorGUI}}
+\doxysubsubsection{\texorpdfstring{detect\_pendrives()}{detect\_pendrives()}}
+{\footnotesize\ttfamily \label{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_aaf251c818b3a02ec481603972fac1c4b} 
+RSA\+\_\+generation.\+RSAKey\+Generator\+GUI.\+detect\+\_\+pendrives (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}@brief Detect and list available pendrives
+@details Uses psutil to scan for removable drives and displays them in the info area.
+         Provides helpful tips for secure key storage on pendrives.
+  The detection process:
+1. Clear previous results
+2. Scan all disk partitions
+3. Filter for removable drives
+4. Display drive information with mount points
+5. Provide user guidance
+\end{DoxyVerb}
+ \Hypertarget{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_adcf42205ec7e0e5e989fd3bc236c9bc9}\index{RSA\_generation.RSAKeyGeneratorGUI@{RSA\_generation.RSAKeyGeneratorGUI}!generate\_keys@{generate\_keys}}
+\index{generate\_keys@{generate\_keys}!RSA\_generation.RSAKeyGeneratorGUI@{RSA\_generation.RSAKeyGeneratorGUI}}
+\doxysubsubsection{\texorpdfstring{generate\_keys()}{generate\_keys()}}
+{\footnotesize\ttfamily \label{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_adcf42205ec7e0e5e989fd3bc236c9bc9} 
+RSA\+\_\+generation.\+RSAKey\+Generator\+GUI.\+generate\+\_\+keys (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}@brief Validate inputs and start the RSA key generation process
+@details Performs comprehensive input validation and initiates background key generation.
+
+Validation steps:
+1. Check PIN is provided
+2. Verify PIN confirmation matches
+3. Ensure minimum PIN length (4 characters)
+4. Optional security warning for short PINs
+5. Validate output directory accessibility
+
+If validation passes, starts RSAKeyGeneratorThread in background.
+\end{DoxyVerb}
+ \Hypertarget{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_ab2c61569aa9ec7620fd6fa6ed62b3fb3}\index{RSA\_generation.RSAKeyGeneratorGUI@{RSA\_generation.RSAKeyGeneratorGUI}!initUI@{initUI}}
+\index{initUI@{initUI}!RSA\_generation.RSAKeyGeneratorGUI@{RSA\_generation.RSAKeyGeneratorGUI}}
+\doxysubsubsection{\texorpdfstring{initUI()}{initUI()}}
+{\footnotesize\ttfamily \label{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_ab2c61569aa9ec7620fd6fa6ed62b3fb3} 
+RSA\+\_\+generation.\+RSAKey\+Generator\+GUI.\+init\+UI (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}@brief Initialize the user interface components
+@details Creates and configures all GUI elements including:
+         - Title and instruction labels with styling
+         - PIN input fields with validation
+         - Output directory selection with browse button
+         - Pendrive detection interface
+         - Progress bar and status indicators
+         - Key generation button with modern styling
+
+All components are organized in a vertical layout with proper spacing
+and grouped in logical sections for better user experience.
+\end{DoxyVerb}
+ \Hypertarget{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_ace0aff8b9aed3d3cd6a8603cc4b360ab}\index{RSA\_generation.RSAKeyGeneratorGUI@{RSA\_generation.RSAKeyGeneratorGUI}!on\_error@{on\_error}}
+\index{on\_error@{on\_error}!RSA\_generation.RSAKeyGeneratorGUI@{RSA\_generation.RSAKeyGeneratorGUI}}
+\doxysubsubsection{\texorpdfstring{on\_error()}{on\_error()}}
+{\footnotesize\ttfamily \label{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_ace0aff8b9aed3d3cd6a8603cc4b360ab} 
+RSA\+\_\+generation.\+RSAKey\+Generator\+GUI.\+on\+\_\+error (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{error\+\_\+message}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}@brief Handle errors during key generation
+@param error_message Error description from the generation thread (string)
+
+Resets the GUI state and displays error information to the user.
+\end{DoxyVerb}
+ \Hypertarget{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_a94ea6162cda75957d6bef20048cdc964}\index{RSA\_generation.RSAKeyGeneratorGUI@{RSA\_generation.RSAKeyGeneratorGUI}!on\_keys\_generated@{on\_keys\_generated}}
+\index{on\_keys\_generated@{on\_keys\_generated}!RSA\_generation.RSAKeyGeneratorGUI@{RSA\_generation.RSAKeyGeneratorGUI}}
+\doxysubsubsection{\texorpdfstring{on\_keys\_generated()}{on\_keys\_generated()}}
+{\footnotesize\ttfamily \label{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_a94ea6162cda75957d6bef20048cdc964} 
+RSA\+\_\+generation.\+RSAKey\+Generator\+GUI.\+on\+\_\+keys\+\_\+generated (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{encrypted\+\_\+private\+\_\+key}{, }\item[{}]{public\+\_\+key}{, }\item[{}]{message}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}@brief Handle successful key generation
+@param encrypted_private_key The encrypted private key (bytes)
+@param public_key The public key in PEM format (bytes)
+@param message Success message from the generation thread (string)
+  Resets the GUI state and displays success information to the user.
+Provides guidance on key usage and security.
+\end{DoxyVerb}
+ \Hypertarget{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_a1d56290798ee865a0331d088b53bc2bb}\index{RSA\_generation.RSAKeyGeneratorGUI@{RSA\_generation.RSAKeyGeneratorGUI}!update\_progress@{update\_progress}}
+\index{update\_progress@{update\_progress}!RSA\_generation.RSAKeyGeneratorGUI@{RSA\_generation.RSAKeyGeneratorGUI}}
+\doxysubsubsection{\texorpdfstring{update\_progress()}{update\_progress()}}
+{\footnotesize\ttfamily \label{class_r_s_a__generation_1_1_r_s_a_key_generator_g_u_i_a1d56290798ee865a0331d088b53bc2bb} 
+RSA\+\_\+generation.\+RSAKey\+Generator\+GUI.\+update\+\_\+progress (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{value}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}@brief Update the progress bar value
+@param value Progress percentage (0-100)
+
+Updates the GUI progress bar to reflect current key generation progress.
+\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+RSA\+\_\+generation.\+py\end{DoxyCompactItemize}
