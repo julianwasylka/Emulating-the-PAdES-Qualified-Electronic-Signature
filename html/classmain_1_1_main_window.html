@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BSK PADES: main.MainWindow Class Reference</title>
+<title>PadesIJ: main.MainWindow Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">BSK PADES<span id="projectnumber">&#160;2</span>
+   <div id="projectname">PadesIJ
    </div>
   </td>
  </tr>
@@ -112,6 +112,9 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>select_pdf</b> (self)</td></tr>
 <tr class="memitem:ab4473f53e2cbb6b696c91cd168f73538" id="r_ab4473f53e2cbb6b696c91cd168f73538"><td class="memItemLeft" align="right" valign="top"><a id="ab4473f53e2cbb6b696c91cd168f73538" name="ab4473f53e2cbb6b696c91cd168f73538"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>detect_pendrives</b> (self)</td></tr>
+<tr class="memitem:a0541a8e13a13a37da2fdbdf574ea6702" id="r_a0541a8e13a13a37da2fdbdf574ea6702"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0541a8e13a13a37da2fdbdf574ea6702">check_pendrive_changes</a> (self)</td></tr>
+<tr class="memitem:acc53433886354b4c58d0e19f121cd996" id="r_acc53433886354b4c58d0e19f121cd996"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acc53433886354b4c58d0e19f121cd996">show_drive_notification</a> (self, message, is_connected)</td></tr>
+<tr class="memitem:a0db31a39fd1e543d074f176c0fd97a70" id="r_a0db31a39fd1e543d074f176c0fd97a70"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0db31a39fd1e543d074f176c0fd97a70">reset_status_message</a> (self, original_text)</td></tr>
 <tr class="memitem:a4291c7312a1eb606fd08936f51eb567b" id="r_a4291c7312a1eb606fd08936f51eb567b"><td class="memItemLeft" align="right" valign="top"><a id="a4291c7312a1eb606fd08936f51eb567b" name="a4291c7312a1eb606fd08936f51eb567b"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>on_pendrive_selected</b> (self, item)</td></tr>
 <tr class="memitem:a532e195e7c2921b8290682c23423e8da" id="r_a532e195e7c2921b8290682c23423e8da"><td class="memItemLeft" align="right" valign="top"><a id="a532e195e7c2921b8290682c23423e8da" name="a532e195e7c2921b8290682c23423e8da"></a>
@@ -130,6 +133,7 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>on_verification_completed</b> (self, is_valid, result_message)</td></tr>
 <tr class="memitem:a42636e84d4fe13f13cc0eddeccfeb2d7" id="r_a42636e84d4fe13f13cc0eddeccfeb2d7"><td class="memItemLeft" align="right" valign="top"><a id="a42636e84d4fe13f13cc0eddeccfeb2d7" name="a42636e84d4fe13f13cc0eddeccfeb2d7"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>on_verification_error</b> (self, error)</td></tr>
+<tr class="memitem:adb86564a9e631eef6c0e3116c05cfff2" id="r_adb86564a9e631eef6c0e3116c05cfff2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adb86564a9e631eef6c0e3116c05cfff2">closeEvent</a> (self, event)</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -137,6 +141,12 @@ Public Attributes</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>selected_pdf</b> = None</td></tr>
 <tr class="memitem:a5e03c5bd7af3a500b9d620de0666d626" id="r_a5e03c5bd7af3a500b9d620de0666d626"><td class="memItemLeft" align="right" valign="top"><a id="a5e03c5bd7af3a500b9d620de0666d626" name="a5e03c5bd7af3a500b9d620de0666d626"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>selected_pendrive</b> = None</td></tr>
+<tr class="memitem:a6ba752699a52646915daf98bd38790e5" id="r_a6ba752699a52646915daf98bd38790e5"><td class="memItemLeft" align="right" valign="top"><a id="a6ba752699a52646915daf98bd38790e5" name="a6ba752699a52646915daf98bd38790e5"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>current_drives</b> = set()</td></tr>
+<tr class="memitem:a4010b054bdee64ed12b3d0ae10ffb09d" id="r_a4010b054bdee64ed12b3d0ae10ffb09d"><td class="memItemLeft" align="right" valign="top"><a id="a4010b054bdee64ed12b3d0ae10ffb09d" name="a4010b054bdee64ed12b3d0ae10ffb09d"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>pendrive_monitor_timer</b> = QTimer()</td></tr>
+<tr class="memitem:a4f3e0bfd95f413a1714235b39601ccbb" id="r_a4f3e0bfd95f413a1714235b39601ccbb"><td class="memItemLeft" align="right" valign="top"><a id="a4f3e0bfd95f413a1714235b39601ccbb" name="a4f3e0bfd95f413a1714235b39601ccbb"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>check_pendrive_changes</b></td></tr>
 <tr class="memitem:a1a1753c89e5495222d5e35483bc4a1e0" id="r_a1a1753c89e5495222d5e35483bc4a1e0"><td class="memItemLeft" align="right" valign="top"><a id="a1a1753c89e5495222d5e35483bc4a1e0" name="a1a1753c89e5495222d5e35483bc4a1e0"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>tab_widget</b> = QTabWidget()</td></tr>
 <tr class="memitem:ae97a94b4633f0adbb861eb762b47dffc" id="r_ae97a94b4633f0adbb861eb762b47dffc"><td class="memItemLeft" align="right" valign="top"><a id="ae97a94b4633f0adbb861eb762b47dffc" name="ae97a94b4633f0adbb861eb762b47dffc"></a>
@@ -152,11 +162,11 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:ad891632bc1e0fe9857ce67e13608015e" id="r_ad891632bc1e0fe9857ce67e13608015e"><td class="memItemLeft" align="right" valign="top"><a id="ad891632bc1e0fe9857ce67e13608015e" name="ad891632bc1e0fe9857ce67e13608015e"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>label_pdf</b> = QLabel(&quot;No document selected&quot;)</td></tr>
 <tr class="memitem:ae879d7e394c297294823bad7e036de99" id="r_ae879d7e394c297294823bad7e036de99"><td class="memItemLeft" align="right" valign="top"><a id="ae879d7e394c297294823bad7e036de99" name="ae879d7e394c297294823bad7e036de99"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>btn_detect_pendrive</b> = QPushButton(&quot;🔍 Detect Pendrives&quot;)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>btn_detect_pendrive</b> = QPushButton(&quot;🔍 Manual Scan&quot;)</td></tr>
 <tr class="memitem:a1e16f1e141bad4bd4cea06ca9d2e4467" id="r_a1e16f1e141bad4bd4cea06ca9d2e4467"><td class="memItemLeft" align="right" valign="top"><a id="a1e16f1e141bad4bd4cea06ca9d2e4467" name="a1e16f1e141bad4bd4cea06ca9d2e4467"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>detect_pendrives</b></td></tr>
 <tr class="memitem:a81050244aeba788f87f3d2f6414575f4" id="r_a81050244aeba788f87f3d2f6414575f4"><td class="memItemLeft" align="right" valign="top"><a id="a81050244aeba788f87f3d2f6414575f4" name="a81050244aeba788f87f3d2f6414575f4"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>btn_refresh_pendrive</b> = QPushButton(&quot;🔄 Refresh&quot;)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>btn_refresh_pendrive</b> = QPushButton(&quot;🔄 Force Refresh&quot;)</td></tr>
 <tr class="memitem:a38ee84b06f77281e3c372226a4d93c46" id="r_a38ee84b06f77281e3c372226a4d93c46"><td class="memItemLeft" align="right" valign="top"><a id="a38ee84b06f77281e3c372226a4d93c46" name="a38ee84b06f77281e3c372226a4d93c46"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>pendrive_status</b> = <a class="el" href="classmain_1_1_status_indicator.html">StatusIndicator</a>()</td></tr>
 <tr class="memitem:ad1f79c2a98fc723dc50791601cb42984" id="r_ad1f79c2a98fc723dc50791601cb42984"><td class="memItemLeft" align="right" valign="top"><a id="ad1f79c2a98fc723dc50791601cb42984" name="ad1f79c2a98fc723dc50791601cb42984"></a>
@@ -212,6 +222,92 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:aaa83e0ed8a5844ce48615063bd3fbd0f" id="r_aaa83e0ed8a5844ce48615063bd3fbd0f"><td class="memItemLeft" align="right" valign="top"><a id="aaa83e0ed8a5844ce48615063bd3fbd0f" name="aaa83e0ed8a5844ce48615063bd3fbd0f"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>on_verification_error</b></td></tr>
 </table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a0541a8e13a13a37da2fdbdf574ea6702" name="a0541a8e13a13a37da2fdbdf574ea6702"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0541a8e13a13a37da2fdbdf574ea6702">&#9670;&#160;</a></span>check_pendrive_changes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">main.MainWindow.check_pendrive_changes </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Monitor for pendrive changes and auto-refresh when detected</pre> 
+</div>
+</div>
+<a id="adb86564a9e631eef6c0e3116c05cfff2" name="adb86564a9e631eef6c0e3116c05cfff2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb86564a9e631eef6c0e3116c05cfff2">&#9670;&#160;</a></span>closeEvent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">main.MainWindow.closeEvent </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>event</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Handle application close event</pre> 
+</div>
+</div>
+<a id="a0db31a39fd1e543d074f176c0fd97a70" name="a0db31a39fd1e543d074f176c0fd97a70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0db31a39fd1e543d074f176c0fd97a70">&#9670;&#160;</a></span>reset_status_message()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">main.MainWindow.reset_status_message </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>original_text</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Reset status message to original text and style</pre> 
+</div>
+</div>
+<a id="acc53433886354b4c58d0e19f121cd996" name="acc53433886354b4c58d0e19f121cd996"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc53433886354b4c58d0e19f121cd996">&#9670;&#160;</a></span>show_drive_notification()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">main.MainWindow.show_drive_notification </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>message</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>is_connected</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Show a brief notification about drive changes</pre> 
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><b>main.py</b></li>
 </ul>

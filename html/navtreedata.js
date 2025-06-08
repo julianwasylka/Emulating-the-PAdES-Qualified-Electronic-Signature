@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "BSK PADES", "index.html", [
+  [ "PadesIJ", "index.html", [
     [ "🔐 PAdES Qualified Electronic Signature Tool", "md__r_e_a_d_m_e.html", [
       [ "✨ Project Status: COMPLETE ✅", "md__r_e_a_d_m_e.html#autotoc_md1", null ],
       [ "🚀 Quick Start", "md__r_e_a_d_m_e.html#autotoc_md2", null ],

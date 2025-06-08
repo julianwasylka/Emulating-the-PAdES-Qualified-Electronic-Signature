@@ -27,6 +27,12 @@ Inheritance diagram for main.\+Main\+Window\+:\begin{figure}[H]
 \Hypertarget{classmain_1_1_main_window_ab4473f53e2cbb6b696c91cd168f73538}\label{classmain_1_1_main_window_ab4473f53e2cbb6b696c91cd168f73538} 
 {\bfseries detect\+\_\+pendrives} (self)
 \item 
+\mbox{\hyperlink{classmain_1_1_main_window_a0541a8e13a13a37da2fdbdf574ea6702}{check\+\_\+pendrive\+\_\+changes}} (self)
+\item 
+\mbox{\hyperlink{classmain_1_1_main_window_acc53433886354b4c58d0e19f121cd996}{show\+\_\+drive\+\_\+notification}} (self, message, is\+\_\+connected)
+\item 
+\mbox{\hyperlink{classmain_1_1_main_window_a0db31a39fd1e543d074f176c0fd97a70}{reset\+\_\+status\+\_\+message}} (self, original\+\_\+text)
+\item 
 \Hypertarget{classmain_1_1_main_window_a4291c7312a1eb606fd08936f51eb567b}\label{classmain_1_1_main_window_a4291c7312a1eb606fd08936f51eb567b} 
 {\bfseries on\+\_\+pendrive\+\_\+selected} (self, item)
 \item 
@@ -53,6 +59,8 @@ Inheritance diagram for main.\+Main\+Window\+:\begin{figure}[H]
 \item 
 \Hypertarget{classmain_1_1_main_window_a42636e84d4fe13f13cc0eddeccfeb2d7}\label{classmain_1_1_main_window_a42636e84d4fe13f13cc0eddeccfeb2d7} 
 {\bfseries on\+\_\+verification\+\_\+error} (self, error)
+\item 
+\mbox{\hyperlink{classmain_1_1_main_window_adb86564a9e631eef6c0e3116c05cfff2}{close\+Event}} (self, event)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -62,6 +70,15 @@ Inheritance diagram for main.\+Main\+Window\+:\begin{figure}[H]
 \item 
 \Hypertarget{classmain_1_1_main_window_a5e03c5bd7af3a500b9d620de0666d626}\label{classmain_1_1_main_window_a5e03c5bd7af3a500b9d620de0666d626} 
 {\bfseries selected\+\_\+pendrive} = None
+\item 
+\Hypertarget{classmain_1_1_main_window_a6ba752699a52646915daf98bd38790e5}\label{classmain_1_1_main_window_a6ba752699a52646915daf98bd38790e5} 
+{\bfseries current\+\_\+drives} = set()
+\item 
+\Hypertarget{classmain_1_1_main_window_a4010b054bdee64ed12b3d0ae10ffb09d}\label{classmain_1_1_main_window_a4010b054bdee64ed12b3d0ae10ffb09d} 
+{\bfseries pendrive\+\_\+monitor\+\_\+timer} = QTimer()
+\item 
+\Hypertarget{classmain_1_1_main_window_a4f3e0bfd95f413a1714235b39601ccbb}\label{classmain_1_1_main_window_a4f3e0bfd95f413a1714235b39601ccbb} 
+{\bfseries check\+\_\+pendrive\+\_\+changes}
 \item 
 \Hypertarget{classmain_1_1_main_window_a1a1753c89e5495222d5e35483bc4a1e0}\label{classmain_1_1_main_window_a1a1753c89e5495222d5e35483bc4a1e0} 
 {\bfseries tab\+\_\+widget} = QTab\+Widget()
@@ -85,13 +102,13 @@ Inheritance diagram for main.\+Main\+Window\+:\begin{figure}[H]
 {\bfseries label\+\_\+pdf} = QLabel("{}No document selected"{})
 \item 
 \Hypertarget{classmain_1_1_main_window_ae879d7e394c297294823bad7e036de99}\label{classmain_1_1_main_window_ae879d7e394c297294823bad7e036de99} 
-{\bfseries btn\+\_\+detect\+\_\+pendrive} = QPush\+Button("{}🔍 Detect Pendrives"{})
+{\bfseries btn\+\_\+detect\+\_\+pendrive} = QPush\+Button("{}🔍 Manual Scan"{})
 \item 
 \Hypertarget{classmain_1_1_main_window_a1e16f1e141bad4bd4cea06ca9d2e4467}\label{classmain_1_1_main_window_a1e16f1e141bad4bd4cea06ca9d2e4467} 
 {\bfseries detect\+\_\+pendrives}
 \item 
 \Hypertarget{classmain_1_1_main_window_a81050244aeba788f87f3d2f6414575f4}\label{classmain_1_1_main_window_a81050244aeba788f87f3d2f6414575f4} 
-{\bfseries btn\+\_\+refresh\+\_\+pendrive} = QPush\+Button("{}🔄 Refresh"{})
+{\bfseries btn\+\_\+refresh\+\_\+pendrive} = QPush\+Button("{}🔄 Force Refresh"{})
 \item 
 \Hypertarget{classmain_1_1_main_window_a38ee84b06f77281e3c372226a4d93c46}\label{classmain_1_1_main_window_a38ee84b06f77281e3c372226a4d93c46} 
 {\bfseries pendrive\+\_\+status} = \mbox{\hyperlink{classmain_1_1_status_indicator}{Status\+Indicator}}()
@@ -175,6 +192,39 @@ Inheritance diagram for main.\+Main\+Window\+:\begin{figure}[H]
 {\bfseries on\+\_\+verification\+\_\+error}
 \end{DoxyCompactItemize}
 
+
+\label{doc-func-members}
+\Hypertarget{classmain_1_1_main_window_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmain_1_1_main_window_a0541a8e13a13a37da2fdbdf574ea6702}\index{main.MainWindow@{main.MainWindow}!check\_pendrive\_changes@{check\_pendrive\_changes}}
+\index{check\_pendrive\_changes@{check\_pendrive\_changes}!main.MainWindow@{main.MainWindow}}
+\doxysubsubsection{\texorpdfstring{check\_pendrive\_changes()}{check\_pendrive\_changes()}}
+{\footnotesize\ttfamily \label{classmain_1_1_main_window_a0541a8e13a13a37da2fdbdf574ea6702} 
+main.\+Main\+Window.\+check\+\_\+pendrive\+\_\+changes (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Monitor for pendrive changes and auto-refresh when detected\end{DoxyVerb}
+ \Hypertarget{classmain_1_1_main_window_adb86564a9e631eef6c0e3116c05cfff2}\index{main.MainWindow@{main.MainWindow}!closeEvent@{closeEvent}}
+\index{closeEvent@{closeEvent}!main.MainWindow@{main.MainWindow}}
+\doxysubsubsection{\texorpdfstring{closeEvent()}{closeEvent()}}
+{\footnotesize\ttfamily \label{classmain_1_1_main_window_adb86564a9e631eef6c0e3116c05cfff2} 
+main.\+Main\+Window.\+close\+Event (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{event}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Handle application close event\end{DoxyVerb}
+ \Hypertarget{classmain_1_1_main_window_a0db31a39fd1e543d074f176c0fd97a70}\index{main.MainWindow@{main.MainWindow}!reset\_status\_message@{reset\_status\_message}}
+\index{reset\_status\_message@{reset\_status\_message}!main.MainWindow@{main.MainWindow}}
+\doxysubsubsection{\texorpdfstring{reset\_status\_message()}{reset\_status\_message()}}
+{\footnotesize\ttfamily \label{classmain_1_1_main_window_a0db31a39fd1e543d074f176c0fd97a70} 
+main.\+Main\+Window.\+reset\+\_\+status\+\_\+message (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{original\+\_\+text}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Reset status message to original text and style\end{DoxyVerb}
+ \Hypertarget{classmain_1_1_main_window_acc53433886354b4c58d0e19f121cd996}\index{main.MainWindow@{main.MainWindow}!show\_drive\_notification@{show\_drive\_notification}}
+\index{show\_drive\_notification@{show\_drive\_notification}!main.MainWindow@{main.MainWindow}}
+\doxysubsubsection{\texorpdfstring{show\_drive\_notification()}{show\_drive\_notification()}}
+{\footnotesize\ttfamily \label{classmain_1_1_main_window_acc53433886354b4c58d0e19f121cd996} 
+main.\+Main\+Window.\+show\+\_\+drive\+\_\+notification (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{message}{, }\item[{}]{is\+\_\+connected}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Show a brief notification about drive changes\end{DoxyVerb}
+ 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
