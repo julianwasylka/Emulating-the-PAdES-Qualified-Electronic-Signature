@@ -24,6 +24,8 @@ import sys
 import platform
 import os
 import hashlib
+import json
+import struct
 from PyQt5.QtWidgets import (
     QApplication, QMainWindow, QPushButton, QVBoxLayout, QHBoxLayout,
     QWidget, QFileDialog, QListWidget, QLabel, QLineEdit, QTextEdit,
@@ -37,7 +39,7 @@ from Crypto.Hash import SHA256
 from Crypto.Cipher import AES
 from Crypto.PublicKey import RSA
 from Crypto.Signature import PKCS1_v1_5
-import PyPDF2
+from pypdf import PdfReader, PdfWriter
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
 import datetime
@@ -110,7 +112,7 @@ class CryptoUtils:
     
     @staticmethod
     def calculate_pdf_hash(pdf_path):
-        """Calculate SHA-256 hash of PDF content"""
+        """Calculate SHA-256 hash of PDF content (original file bytes)"""
         try:
             with open(pdf_path, "rb") as f:
                 pdf_content = f.read()
@@ -122,6 +124,31 @@ class CryptoUtils:
             
         except Exception as e:
             raise Exception(f"Failed to calculate PDF hash: {str(e)}")
+    
+    @staticmethod
+    def calculate_original_content_hash(signed_pdf_path):
+        """Calculate hash of original content from signed PDF (excluding signature metadata)"""
+        try:
+            # Read the signed PDF and extract original content
+            with open(signed_pdf_path, "rb") as f:
+                # Try to find signature footer marker
+                content = f.read()
+                
+            # Look for our signature delimiter
+            signature_delimiter = b"===PADES_SIGNATURE_START==="
+            
+            if signature_delimiter in content:
+                # Extract original content (before signature)
+                original_content = content.split(signature_delimiter)[0]
+                hash_obj = SHA256.new()
+                hash_obj.update(original_content)
+                return hash_obj.digest(), hash_obj.hexdigest()
+            else:
+                # Fallback: try to extract content from PDF structure
+                return CryptoUtils.calculate_pdf_hash(signed_pdf_path)
+                
+        except Exception as e:
+            raise Exception(f"Failed to calculate original content hash: {str(e)}")
     
     @staticmethod
     def sign_hash(hash_digest, private_key):
@@ -150,42 +177,45 @@ class CryptoUtils:
 class PDFSigner:
     @staticmethod
     def create_signed_pdf(original_pdf_path, signature, hash_hex, output_path, signer_info="Anonymous"):
-        """Create a new PDF with signature information embedded"""
+        """Create a new PDF with signature information embedded using append method"""
         try:
-            # Read original PDF
+            # Read original PDF content
             with open(original_pdf_path, "rb") as f:
-                pdf_reader = PyPDF2.PdfReader(f)
+                original_content = f.read()
+            
+            # Create signature info
+            signature_info = {
+                'signature': signature.hex(),
+                'hash': hash_hex,
+                'timestamp': datetime.datetime.now().isoformat(),
+                'signer': signer_info,
+                'algorithm': 'RSA-4096 + SHA-256'
+            }
+            
+            # Serialize signature info to JSON
+            signature_json = json.dumps(signature_info, indent=2)
+            signature_bytes = signature_json.encode('utf-8')
+            
+            # Create signature delimiter and structure
+            delimiter = b"===PADES_SIGNATURE_START==="
+            signature_length = struct.pack('<I', len(signature_bytes))  # 4-byte little-endian length
+            
+            # Write signed PDF with appended signature
+            with open(output_path, "wb") as output_file:
+                # Write original PDF content
+                output_file.write(original_content)
                 
-                # Create signature info
-                signature_info = {
-                    'signature': signature.hex(),
-                    'hash': hash_hex,
-                    'timestamp': datetime.datetime.now().isoformat(),
-                    'signer': signer_info,
-                    'algorithm': 'RSA-4096 + SHA-256'
-                }
+                # Write signature structure:
+                # DELIMITER + LENGTH(4 bytes) + SIGNATURE_JSON
+                output_file.write(delimiter)
+                output_file.write(signature_length)
+                output_file.write(signature_bytes)
                 
-                # Add metadata to PDF
-                pdf_writer = PyPDF2.PdfWriter()
-                
-                # Copy all pages
-                for page in pdf_reader.pages:
-                    pdf_writer.add_page(page)
-                
-                # Add signature metadata
-                pdf_writer.add_metadata({
-                    '/PAdES_Signature': str(signature_info),
-                    '/SignatureHash': hash_hex,
-                    '/SignatureTimestamp': signature_info['timestamp'],
-                    '/SignatureAlgorithm': signature_info['algorithm']
-                })
-                
-                # Write signed PDF
-                with open(output_path, "wb") as output_file:
-                    pdf_writer.write(output_file)
-                
-                return True
-                
+                # Write end marker for easier detection
+                output_file.write(b"===PADES_SIGNATURE_END===")
+            
+            return True
+            
         except Exception as e:
             raise Exception(f"Failed to create signed PDF: {str(e)}")
     
@@ -194,16 +224,41 @@ class PDFSigner:
         """Extract signature information from signed PDF"""
         try:
             with open(signed_pdf_path, "rb") as f:
-                pdf_reader = PyPDF2.PdfReader(f)
-                metadata = pdf_reader.metadata
+                content = f.read()
+            
+            # Look for signature delimiter
+            start_delimiter = b"===PADES_SIGNATURE_START==="
+            end_delimiter = b"===PADES_SIGNATURE_END==="
+            
+            start_pos = content.find(start_delimiter)
+            end_pos = content.find(end_delimiter)
+            
+            if start_pos == -1 or end_pos == -1:
+                return None
+            
+            # Extract signature section
+            signature_start = start_pos + len(start_delimiter)
+            
+            # Read signature length (4 bytes)
+            length_bytes = content[signature_start:signature_start + 4]
+            if len(length_bytes) != 4:
+                return None
                 
-                if metadata and '/PAdES_Signature' in metadata:
-                    import ast
-                    signature_info = ast.literal_eval(metadata['/PAdES_Signature'])
-                    return signature_info
-                else:
-                    return None
-                    
+            signature_length = struct.unpack('<I', length_bytes)[0]
+            
+            # Extract signature JSON
+            json_start = signature_start + 4
+            json_end = json_start + signature_length
+            
+            if json_end > end_pos:
+                return None
+                
+            signature_json = content[json_start:json_end].decode('utf-8')
+            
+            # Parse and return signature info
+            signature_info = json.loads(signature_json)
+            return signature_info
+            
         except Exception as e:
             raise Exception(f"Failed to extract signature info: {str(e)}")
 
@@ -284,25 +339,40 @@ class VerificationThread(QThread):
             self.status_updated.emit("Calculating current PDF hash...")
             self.progress_updated.emit(60)
             
-            # Calculate current PDF hash (without signature)
-            # For simplicity, we'll use the stored hash
+            # Calculate current hash of the original content (excluding signature)
+            current_hash_digest, current_hash_hex = CryptoUtils.calculate_original_content_hash(self.signed_pdf_path)
+            
+            # Get stored hash from signature
             stored_hash = signature_info['hash']
             signature_bytes = bytes.fromhex(signature_info['signature'])
             
-            self.status_updated.emit("Verifying signature...")
+            self.status_updated.emit("Verifying signature and tamper detection...")
             self.progress_updated.emit(80)
             
-            # Verify signature
-            hash_digest = bytes.fromhex(stored_hash)
-            is_valid = CryptoUtils.verify_signature(hash_digest, signature_bytes, public_key)
+            # Verify signature using stored hash
+            stored_hash_digest = bytes.fromhex(stored_hash)
+            is_signature_valid = CryptoUtils.verify_signature(stored_hash_digest, signature_bytes, public_key)
+            
+            # Check for tampering by comparing hashes
+            is_content_unchanged = (current_hash_hex == stored_hash)
             
             self.progress_updated.emit(100)
+            
+            # Determine overall validity
+            is_valid = is_signature_valid and is_content_unchanged
+            
+            tamper_status = "✅ NO TAMPERING" if is_content_unchanged else "⚠️ CONTENT MODIFIED"
+            signature_status = "✅ VALID" if is_signature_valid else "❌ INVALID"
             
             result_message = f"""
 Signature Verification Results:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Signature Valid: {'✅ YES' if is_valid else '❌ NO'}
-Document Hash: {stored_hash}
+Overall Status: {'✅ DOCUMENT VALID' if is_valid else '❌ DOCUMENT COMPROMISED'}
+Signature Status: {signature_status}
+Tamper Detection: {tamper_status}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Document Hash (stored): {stored_hash}
+Document Hash (current): {current_hash_hex}
 Signature Timestamp: {signature_info['timestamp']}
 Algorithm: {signature_info['algorithm']}
 Signer: {signature_info.get('signer', 'Unknown')}
@@ -384,7 +454,17 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.selected_pdf = None
         self.selected_pendrive = None
+        
+        # Initialize pendrive monitoring
+        self.current_drives = set()
+        self.pendrive_monitor_timer = QTimer()
+        self.pendrive_monitor_timer.timeout.connect(self.check_pendrive_changes)
+        self.pendrive_monitor_timer.start(2000)  # Check every 2 seconds
+        
         self.initUI()
+        
+        # Initial pendrive detection
+        self.detect_pendrives()
         
     def initUI(self):
         self.setWindowTitle("PAdES Electronic Signature Tool")
@@ -474,15 +554,19 @@ class MainWindow(QMainWindow):
         pdf_layout.addLayout(pdf_button_layout)
         pdf_layout.addWidget(self.label_pdf)
         pdf_group.setLayout(pdf_layout)
-        layout.addWidget(pdf_group)
-          # Pendrive Detection Group
-        pendrive_group = QGroupBox("💾 Hardware Security Module (Pendrive)")
+        layout.addWidget(pdf_group)        # Pendrive Detection Group
+        pendrive_group = QGroupBox("💾 Hardware Security Module (Pendrive) - Auto-Detection Active")
         pendrive_layout = QVBoxLayout()
         
+        # Add auto-detection info label
+        auto_detect_info = QLabel("🔄 Automatic detection enabled - pendrives will be detected when plugged/unplugged")
+        auto_detect_info.setStyleSheet("color: #2c3e50; font-size: 10px; font-style: italic; padding: 4px;")
+        pendrive_layout.addWidget(auto_detect_info)
+        
         pendrive_button_layout = QHBoxLayout()
-        self.btn_detect_pendrive = QPushButton("🔍 Detect Pendrives")
+        self.btn_detect_pendrive = QPushButton("🔍 Manual Scan")
         self.btn_detect_pendrive.clicked.connect(self.detect_pendrives)
-        self.btn_refresh_pendrive = QPushButton("🔄 Refresh")
+        self.btn_refresh_pendrive = QPushButton("🔄 Force Refresh")
         self.btn_refresh_pendrive.clicked.connect(self.detect_pendrives)
         self.pendrive_status = StatusIndicator()
         
@@ -632,11 +716,16 @@ class MainWindow(QMainWindow):
             self.label_pdf.setText("No document selected")
             self.label_pdf.setStyleSheet("padding: 8px; background-color: white; border: 1px solid #ddd; border-radius: 4px;")
             self.pdf_status.set_status("idle")
-    
     def detect_pendrives(self):
         self.list_pendrives.clear()
         self.pendrive_status.set_status("working")
         drives = PendriveDetector.get_removable_drives()
+        
+        # Update current drives set
+        current_drive_paths = set()
+        for drive in drives:
+            current_drive_paths.add(drive['mountpoint'])
+        self.current_drives = current_drive_paths
         
         if drives:
             has_keys = False
@@ -656,6 +745,53 @@ class MainWindow(QMainWindow):
         else:
             self.list_pendrives.addItem("❌ No removable drives detected")
             self.pendrive_status.set_status("error")
+    
+    def check_pendrive_changes(self):
+        """Monitor for pendrive changes and auto-refresh when detected"""
+        drives = PendriveDetector.get_removable_drives()
+        new_drive_paths = set()
+        for drive in drives:
+            new_drive_paths.add(drive['mountpoint'])
+        
+        # Check if drives have changed
+        if new_drive_paths != self.current_drives:
+            # Drives have changed, refresh the list
+            self.detect_pendrives()
+            
+            # Show notification about the change
+            if len(new_drive_paths) > len(self.current_drives):
+                # New drive(s) detected
+                new_drives = new_drive_paths - self.current_drives
+                for drive_path in new_drives:
+                    self.show_drive_notification(f"📱 Pendrive connected: {drive_path}", True)
+            elif len(new_drive_paths) < len(self.current_drives):
+                # Drive(s) removed
+                removed_drives = self.current_drives - new_drive_paths
+                for drive_path in removed_drives:
+                    self.show_drive_notification(f"📱 Pendrive disconnected: {drive_path}", False)
+                    
+                # Clear selected pendrive if it was removed
+                if self.selected_pendrive and self.selected_pendrive in removed_drives:
+                    self.selected_pendrive = None
+    
+    def show_drive_notification(self, message, is_connected):
+        """Show a brief notification about drive changes"""
+        # Create a temporary status message
+        if hasattr(self, 'signing_status'):
+            original_text = self.signing_status.text()
+            self.signing_status.setText(message)
+            self.signing_status.setStyleSheet(
+                "color: #27ae60; font-weight: bold;" if is_connected 
+                else "color: #e74c3c; font-weight: bold;"
+            )
+              # Reset the message after 3 seconds
+            QTimer.singleShot(3000, lambda: self.reset_status_message(original_text))
+    
+    def reset_status_message(self, original_text):
+        """Reset status message to original text and style"""
+        if hasattr(self, 'signing_status'):
+            self.signing_status.setText(original_text)
+            self.signing_status.setStyleSheet("")  # Reset to default style
     
     def on_pendrive_selected(self, item):
         text = item.text()
@@ -791,6 +927,13 @@ class MainWindow(QMainWindow):
         self.verification_progress.setVisible(False)
         self.verification_status.setText("❌ Verification failed!")
         QMessageBox.critical(self, "Error", f"Verification failed:\n{error}")
+    
+    def closeEvent(self, event):
+        """Handle application close event"""
+        # Stop the pendrive monitoring timer
+        if hasattr(self, 'pendrive_monitor_timer'):
+            self.pendrive_monitor_timer.stop()
+        event.accept()
 
 
 if __name__ == '__main__':
