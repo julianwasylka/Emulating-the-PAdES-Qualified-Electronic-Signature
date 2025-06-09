@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BSK PADES: 🔐 PAdES Qualified Electronic Signature Tool</title>
+<title>PDF signing project: 🔐 PAdES Qualified Electronic Signature Tool</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">BSK PADES<span id="projectnumber">&#160;2</span>
+   <div id="projectname">PDF signing project
    </div>
   </td>
  </tr>
@@ -95,7 +95,8 @@ $(function(){initNavTree('md__r_e_a_d_m_e.html','',''); });
 <p>A complete implementation of PAdES (PDF Advanced Electronic Signatures) qualified electronic signature tool with RSA-4096 encryption, AES-256 private key protection, and modern GUI interface.</p>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md1"></a>
 ✨ Project Status: COMPLETE ✅</h1>
-<p><b>All requirements have been successfully implemented and tested:</b></p><ul>
+<p><b>All requirements have been successfully implemented and tested:</b></p>
+<ul>
 <li>✅ RSA-4096 key generation with cryptographically secure random generator</li>
 <li>✅ AES-256-EAX private key encryption with PIN-derived keys</li>
 <li>✅ PAdES-compliant digital signature generation and verification</li>
@@ -107,11 +108,14 @@ $(function(){initNavTree('md__r_e_a_d_m_e.html','',''); });
 <h1 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
 🚀 Quick Start</h1>
 <ol type="1">
-<li><b>Install dependencies:</b> <div class="fragment"><div class="line">pip install -r requirements.txt</div>
+<li><p class="startli"><b>Install dependencies:</b></p>
+<div class="fragment"><div class="line">pip install -r requirements.txt</div>
 </div><!-- fragment --></li>
-<li><b>Generate RSA keys:</b> <div class="fragment"><div class="line">python RSA_generation.py</div>
+<li><p class="startli"><b>Generate RSA keys:</b></p>
+<div class="fragment"><div class="line">python RSA_generation.py</div>
 </div><!-- fragment --></li>
-<li><b>Sign and verify documents:</b> <div class="fragment"><div class="line">python pythonProject/main.py</div>
+<li><p class="startli"><b>Sign and verify documents:</b></p>
+<div class="fragment"><div class="line">python main.py</div>
 </div><!-- fragment --></li>
 </ol>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
@@ -225,7 +229,8 @@ Manual Installation</h2>
 <div class="line">└── README.md                # This file</div>
 </div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="autotoc_md18"></a>
 🧪 Testing Scenarios</h1>
-<p>The application has been tested with the following scenarios:</p><ul>
+<p>The application has been tested with the following scenarios:</p>
+<ul>
 <li>✅ RSA key generation with various PIN lengths</li>
 <li>✅ Document signing with different PDF sizes and formats</li>
 <li>✅ Signature verification with valid signatures</li>
@@ -234,44 +239,6 @@ Manual Installation</h2>
 <li>✅ Error handling for invalid PINs and missing keys</li>
 </ul>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md19"></a>
-📋 Requirements Compliance</h1>
-<p>This implementation fulfills all project requirements:</p><ul class="check">
-<li class="checked">GUI interface for document selection and signing</li>
-</ul>
-<ul class="check">
-<li class="checked">RSA-4096 signature algorithm implementation</li>
-</ul>
-<ul class="check">
-<li class="checked">Pseudorandom number generator for key generation</li>
-</ul>
-<ul class="check">
-<li class="checked">AES-256 private key encryption with PIN-derived keys</li>
-</ul>
-<ul class="check">
-<li class="checked">Mandatory pendrive usage for private key storage</li>
-</ul>
-<ul class="check">
-<li class="checked">Automatic hardware detection and key loading</li>
-</ul>
-<ul class="check">
-<li class="checked">Public key storage and transfer capabilities</li>
-</ul>
-<ul class="check">
-<li class="checked">Status/message icons for application state indication</li>
-</ul>
-<ul class="check">
-<li class="checked">Single-user signing capability</li>
-</ul>
-<ul class="check">
-<li class="checked">External library usage (pycryptodome, PyQt5, etc.)</li>
-</ul>
-<ul class="check">
-<li class="checked">Comprehensive testing and validation</li>
-</ul>
-<ul class="check">
-<li class="checked">Code documentation and GitHub repository</li>
-</ul>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md20"></a>
 🔗 Repository</h1>
 <p>GitHub Repository: <a href="https://github.com/julianwasylka/Emulating-the-PAdES-Qualified-Electronic-Signature">[Emulating-the-PAdES-Qualified-Electronic-Signature]</a> </p>
 </div></div><!-- contents -->

@@ -6,6 +6,8 @@
 
 A complete implementation of PAd\+ES (PDF Advanced Electronic Signatures) qualified electronic signature tool with RSA-\/4096 encryption, AES-\/256 private key protection, and modern GUI interface.\hypertarget{md__r_e_a_d_m_e_autotoc_md1}{}\doxysection{\texorpdfstring{✨ Project Status\+: COMPLETE ✅}{✨ Project Status\+: COMPLETE ✅}}\label{md__r_e_a_d_m_e_autotoc_md1}
 {\bfseries{All requirements have been successfully implemented and tested\+:}}
+
+
 \begin{DoxyItemize}
 \item ✅ RSA-\/4096 key generation with cryptographically secure random generator
 \item ✅ AES-\/256-\/\+EAX private key encryption with PIN-\/derived keys
@@ -17,21 +19,27 @@ A complete implementation of PAd\+ES (PDF Advanced Electronic Signatures) qualif
 \end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md2}{}\doxysection{\texorpdfstring{🚀 Quick Start}{🚀 Quick Start}}\label{md__r_e_a_d_m_e_autotoc_md2}
 
 \begin{DoxyEnumerate}
-\item {\bfseries{Install dependencies\+:}} 
+\item {\bfseries{Install dependencies\+:}}
+
+
 \begin{DoxyCode}{0}
 \DoxyCodeLine{pip\ install\ -\/r\ requirements.txt}
 
 \end{DoxyCode}
 
-\item {\bfseries{Generate RSA keys\+:}} 
+\item {\bfseries{Generate RSA keys\+:}}
+
+
 \begin{DoxyCode}{0}
 \DoxyCodeLine{python\ RSA\_generation.py}
 
 \end{DoxyCode}
 
-\item {\bfseries{Sign and verify documents\+:}} 
+\item {\bfseries{Sign and verify documents\+:}}
+
+
 \begin{DoxyCode}{0}
-\DoxyCodeLine{python\ pythonProject/main.py}
+\DoxyCodeLine{python\ main.py}
 
 \end{DoxyCode}
 
@@ -94,6 +102,8 @@ This project implements a complete PAd\+ES electronic signature solution consist
 
 \end{DoxyCode}
 
+
+
 \begin{DoxyEnumerate}
 \item Launch the RSA Key Generator
 \item Enter a secure PIN (minimum 4 characters)
@@ -111,6 +121,8 @@ This project implements a complete PAd\+ES electronic signature solution consist
 \DoxyCodeLine{python\ main.py}
 
 \end{DoxyCode}
+
+
 
 \begin{DoxyEnumerate}
 \item Open the main PAd\+ES application
@@ -152,6 +164,8 @@ This project implements a complete PAd\+ES electronic signature solution consist
 \end{DoxyCode}
 \hypertarget{md__r_e_a_d_m_e_autotoc_md18}{}\doxysection{\texorpdfstring{🧪 Testing Scenarios}{🧪 Testing Scenarios}}\label{md__r_e_a_d_m_e_autotoc_md18}
 The application has been tested with the following scenarios\+:
+
+
 \begin{DoxyItemize}
 \item ✅ RSA key generation with various PIN lengths
 \item ✅ Document signing with different PDF sizes and formats
@@ -159,42 +173,5 @@ The application has been tested with the following scenarios\+:
 \item ✅ Tamper detection with modified documents
 \item ✅ Pendrive detection across different USB devices
 \item ✅ Error handling for invalid PINs and missing keys
-\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md19}{}\doxysection{\texorpdfstring{📋 Requirements Compliance}{📋 Requirements Compliance}}\label{md__r_e_a_d_m_e_autotoc_md19}
-This implementation fulfills all project requirements\+:
-\begin{DoxyItemize}
-\item[\DoxyChecked] GUI interface for document selection and signing
-\end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyChecked] RSA-\/4096 signature algorithm implementation
-\end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyChecked] Pseudorandom number generator for key generation
-\end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyChecked] AES-\/256 private key encryption with PIN-\/derived keys
-\end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyChecked] Mandatory pendrive usage for private key storage
-\end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyChecked] Automatic hardware detection and key loading
-\end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyChecked] Public key storage and transfer capabilities
-\end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyChecked] Status/message icons for application state indication
-\end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyChecked] Single-\/user signing capability
-\end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyChecked] External library usage (pycryptodome, Py\+Qt5, etc.)
-\end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyChecked] Comprehensive testing and validation
-\end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyChecked] Code documentation and Git\+Hub repository
-\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md20}{}\doxysection{\texorpdfstring{🔗 Repository}{🔗 Repository}}\label{md__r_e_a_d_m_e_autotoc_md20}
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md19}{}\doxysection{\texorpdfstring{🔗 Repository}{🔗 Repository}}\label{md__r_e_a_d_m_e_autotoc_md19}
 Git\+Hub Repository\+: \href{https://github.com/julianwasylka/Emulating-the-PAdES-Qualified-Electronic-Signature}{\texttt{\mbox{[}Emulating-\/the-\/\+PAd\+ES-\/\+Qualified-\/\+Electronic-\/\+Signature\mbox{]}}} 

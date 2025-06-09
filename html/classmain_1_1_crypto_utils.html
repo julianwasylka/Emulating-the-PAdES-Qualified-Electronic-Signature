@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BSK PADES: main.CryptoUtils Class Reference</title>
+<title>PDF signing project: main.CryptoUtils Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">BSK PADES<span id="projectnumber">&#160;2</span>
+   <div id="projectname">PDF signing project
    </div>
   </td>
  </tr>
@@ -97,10 +97,36 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:aa300de46b3d0cde092176c6abff95ee1" id="r_aa300de46b3d0cde092176c6abff95ee1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa300de46b3d0cde092176c6abff95ee1">load_private_key_from_pendrive</a> (pendrive_path, pin)</td></tr>
 <tr class="memitem:a4f7d62fcce4731abe109c4aa69fefca3" id="r_a4f7d62fcce4731abe109c4aa69fefca3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4f7d62fcce4731abe109c4aa69fefca3">load_public_key</a> (key_path)</td></tr>
 <tr class="memitem:ad94bd63e48a4242fda9fd3d5f6c6e57a" id="r_ad94bd63e48a4242fda9fd3d5f6c6e57a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad94bd63e48a4242fda9fd3d5f6c6e57a">calculate_pdf_hash</a> (pdf_path)</td></tr>
+<tr class="memitem:a7fe80575893ec33c2c3b10d02cfbb5ba" id="r_a7fe80575893ec33c2c3b10d02cfbb5ba"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7fe80575893ec33c2c3b10d02cfbb5ba">calculate_original_content_hash</a> (signed_pdf_path)</td></tr>
 <tr class="memitem:a274c15a933fbc7f545a2bf819759ef1e" id="r_a274c15a933fbc7f545a2bf819759ef1e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a274c15a933fbc7f545a2bf819759ef1e">sign_hash</a> (hash_digest, private_key)</td></tr>
 <tr class="memitem:a70ca9dc846b2d92a2078967cb0e75f55" id="r_a70ca9dc846b2d92a2078967cb0e75f55"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a70ca9dc846b2d92a2078967cb0e75f55">verify_signature</a> (hash_digest, signature, public_key)</td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a7fe80575893ec33c2c3b10d02cfbb5ba" name="a7fe80575893ec33c2c3b10d02cfbb5ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fe80575893ec33c2c3b10d02cfbb5ba">&#9670;&#160;</a></span>calculate_original_content_hash()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">main.CryptoUtils.calculate_original_content_hash </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>signed_pdf_path</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<pre class="fragment">Calculate hash of original content from signed PDF (excluding signature metadata)</pre> 
+</div>
+</div>
 <a id="ad94bd63e48a4242fda9fd3d5f6c6e57a" name="ad94bd63e48a4242fda9fd3d5f6c6e57a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad94bd63e48a4242fda9fd3d5f6c6e57a">&#9670;&#160;</a></span>calculate_pdf_hash()</h2>
 
@@ -123,7 +149,7 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<pre class="fragment">Calculate SHA-256 hash of PDF content</pre> 
+<pre class="fragment">Calculate SHA-256 hash of PDF content (original file bytes)</pre> 
 </div>
 </div>
 <a id="aa300de46b3d0cde092176c6abff95ee1" name="aa300de46b3d0cde092176c6abff95ee1"></a>

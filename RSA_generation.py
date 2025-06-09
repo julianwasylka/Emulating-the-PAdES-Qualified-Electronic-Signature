@@ -5,9 +5,9 @@
 @details This application provides a secure GUI interface for generating RSA-4096 key pairs
          with AES-256-EAX encryption for private key protection. Supports pendrive detection
          and PIN-based key derivation following cryptographic best practices.
-@author PAdES Electronic Signature Project
+@author Julian Wasylka & Igor Józefowicz
 @date 2025
-@version 1.0
+@version 2.0
 
 @section FEATURES Features
 - RSA-4096 key generation with cryptographically secure random number generator
@@ -54,7 +54,6 @@ class RSAKeyGeneratorThread(QThread):
     @details Handles RSA-4096 key generation, AES-256 encryption, and file operations
              in a separate thread to prevent GUI freezing during computation.
     
-    @author PAdES Electronic Signature Project
     @version 1.0
     @date 2025
     
@@ -151,7 +150,6 @@ class RSAKeyGeneratorGUI(QMainWindow):
              AES-256-EAX encryption. Features include PIN validation, pendrive detection,
              progress tracking, and comprehensive error handling.
     
-    @author PAdES Electronic Signature Project
     @version 1.0
     @date 2025
     

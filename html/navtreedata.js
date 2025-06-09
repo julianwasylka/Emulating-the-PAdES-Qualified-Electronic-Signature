@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "BSK PADES", "index.html", [
+  [ "PDF signing project", "index.html", [
     [ "🔐 PAdES Qualified Electronic Signature Tool", "md__r_e_a_d_m_e.html", [
       [ "✨ Project Status: COMPLETE ✅", "md__r_e_a_d_m_e.html#autotoc_md1", null ],
       [ "🚀 Quick Start", "md__r_e_a_d_m_e.html#autotoc_md2", null ],
@@ -47,8 +47,7 @@ var NAVTREE =
       [ "🔒 Security Features", "md__r_e_a_d_m_e.html#autotoc_md16", null ],
       [ "📁 Project Structure", "md__r_e_a_d_m_e.html#autotoc_md17", null ],
       [ "🧪 Testing Scenarios", "md__r_e_a_d_m_e.html#autotoc_md18", null ],
-      [ "📋 Requirements Compliance", "md__r_e_a_d_m_e.html#autotoc_md19", null ],
-      [ "🔗 Repository", "md__r_e_a_d_m_e.html#autotoc_md20", null ]
+      [ "🔗 Repository", "md__r_e_a_d_m_e.html#autotoc_md19", null ]
     ] ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
