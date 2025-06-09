@@ -5,6 +5,7 @@ A complete implementation of PAdES (PDF Advanced Electronic Signatures) qualifie
 ## ✨ Project Status: COMPLETE ✅
 
 **All requirements have been successfully implemented and tested:**
+
 - ✅ RSA-4096 key generation with cryptographically secure random generator
 - ✅ AES-256-EAX private key encryption with PIN-derived keys
 - ✅ PAdES-compliant digital signature generation and verification
@@ -16,18 +17,21 @@ A complete implementation of PAdES (PDF Advanced Electronic Signatures) qualifie
 ## 🚀 Quick Start
 
 1. **Install dependencies:**
+
    ```bash
    pip install -r requirements.txt
    ```
 
 2. **Generate RSA keys:**
+
    ```bash
    python RSA_generation.py
    ```
 
 3. **Sign and verify documents:**
+
    ```bash
-   python pythonProject/main.py
+   python main.py
    ```
 
 ## 🎯 Project Overview
@@ -40,6 +44,7 @@ This project implements a complete PAdES electronic signature solution consistin
 ## 🔧 Key Features
 
 ### RSA Key Generator
+
 - ✅ **4096-bit RSA key generation** using cryptographically secure random number generator
 - ✅ **AES-256 encryption** of private keys using PIN-derived keys (SHA-256)
 - ✅ **Pendrive storage support** for secure key storage
@@ -47,6 +52,7 @@ This project implements a complete PAdES electronic signature solution consistin
 - ✅ **Key validation** and security checks
 
 ### PAdES Signature Tool
+
 - ✅ **PDF document signing** with RSA-4096 + SHA-256
 - ✅ **Automatic pendrive detection** for hardware security modules
 - ✅ **Digital signature verification** with public key validation
@@ -65,15 +71,18 @@ This project implements a complete PAdES electronic signature solution consistin
 ## 🚀 Installation & Setup
 
 ### Prerequisites
+
 - Python 3.7+ (tested with Python 3.13.2)
 - USB pendrive for key storage
 
 ### Install Dependencies
+
 ```bash
 pip install -r requirements.txt
 ```
 
 ### Manual Installation
+
 ```bash
 pip install pycryptodome PyQt5 psutil PyPDF2 reportlab
 ```
@@ -81,9 +90,11 @@ pip install pycryptodome PyQt5 psutil PyPDF2 reportlab
 ## 📖 Usage Guide
 
 ### 1. Generate RSA Keys
+
 ```bash
 python RSA_generation.py
 ```
+
 1. Launch the RSA Key Generator
 2. Enter a secure PIN (minimum 4 characters)
 3. Select output directory (preferably on pendrive)
@@ -93,10 +104,12 @@ python RSA_generation.py
    - `rsa_public.pem` (public key for verification)
 
 ### 2. Sign PDF Documents
+
 ```bash
 cd pythonProject
 python main.py
 ```
+
 1. Open the main PAdES application
 2. Go to "Document Signing" tab
 3. Select PDF document to sign
@@ -106,6 +119,7 @@ python main.py
 7. Click "Sign Document"
 
 ### 3. Verify Signatures
+
 1. Go to "Signature Verification" tab
 2. Select the signed PDF document
 3. Select the corresponding public key file
@@ -122,7 +136,7 @@ python main.py
 
 ## 📁 Project Structure
 
-```
+```text
 ├── RSA_generation.py          # RSA key generator (auxiliary app)
 ├── pythonProject/
 │   └── main.py               # Main PAdES signing application
@@ -137,28 +151,13 @@ python main.py
 ## 🧪 Testing Scenarios
 
 The application has been tested with the following scenarios:
+
 - ✅ RSA key generation with various PIN lengths
 - ✅ Document signing with different PDF sizes and formats
 - ✅ Signature verification with valid signatures
 - ✅ Tamper detection with modified documents
 - ✅ Pendrive detection across different USB devices
 - ✅ Error handling for invalid PINs and missing keys
-
-## 📋 Requirements Compliance
-
-This implementation fulfills all project requirements:
-- [x] GUI interface for document selection and signing
-- [x] RSA-4096 signature algorithm implementation
-- [x] Pseudorandom number generator for key generation
-- [x] AES-256 private key encryption with PIN-derived keys
-- [x] Mandatory pendrive usage for private key storage
-- [x] Automatic hardware detection and key loading
-- [x] Public key storage and transfer capabilities
-- [x] Status/message icons for application state indication
-- [x] Single-user signing capability
-- [x] External library usage (pycryptodome, PyQt5, etc.)
-- [x] Comprehensive testing and validation
-- [x] Code documentation and GitHub repository
 
 ## 🔗 Repository
 

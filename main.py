@@ -5,9 +5,9 @@
 @details Complete implementation of PAdES-compliant digital signature application
          with RSA-4096 + SHA-256 signing, document verification, and GUI interface.
          Supports pendrive integration, status indicators, and comprehensive error handling.
-@author PAdES Electronic Signature Project
+@author Igor Józefowicz
 @date 2025
-@version 1.0
+@version 2.0
 
 Features:
 - PAdES-compliant PDF digital signature generation
@@ -134,7 +134,7 @@ class CryptoUtils:
                 # Try to find signature footer marker
                 content = f.read()
                 
-            # Look for our signature delimiter
+            # Look for the signature delimiter
             signature_delimiter = b"===PADES_SIGNATURE_START==="
             
             if signature_delimiter in content:
